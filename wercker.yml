@@ -46,7 +46,7 @@ deploy:
 
   box: nodesource/trusty:4.3.0
 
-  dockerhub:
+  dockerHub:
     - internal/docker-scratch-push:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
