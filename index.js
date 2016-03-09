@@ -13,6 +13,6 @@ seneca.ready(function onReady() {
 		.use(seneca.export('web'))
 		.get('/:title', seneca.export('movie'))
 		.listen(3000, function onListen() {
-			console.log('App listening on port 3000');
+			console.log('Now listening on port 3000');
 		});
 });
