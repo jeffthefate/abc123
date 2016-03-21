@@ -5,11 +5,10 @@ box:
     # http://devcenter.wercker.com/docs/steps/internal-steps.html
     - cmd: /bin/sh
 
-services:
-    # Do all these steps need mongo?
-    - id: mongodb
-
 dev:
+
+    services:
+        - id: mongodb
 
     steps:
 
