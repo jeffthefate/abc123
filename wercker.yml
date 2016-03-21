@@ -7,7 +7,7 @@ box:
 
 services:
     # Do all these steps need mongo?
-    - mongodb
+    - id: mongo
 
 dev:
 
