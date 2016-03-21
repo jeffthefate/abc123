@@ -6,10 +6,8 @@ box:
     - cmd: /bin/sh
 
 dev:
-
     services:
         - id: mongodb
-
     steps:
 
         - script:
