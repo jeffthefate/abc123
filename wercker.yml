@@ -1,12 +1,12 @@
 box:
     # 4.4.0 is latest LTS version of node
-    - id: nodesource/trusty:4.4.0
+    id: nodesource/trusty:4.4.0
     # Looks like this is the actual executable that runs bash scripts
     # http://devcenter.wercker.com/docs/steps/internal-steps.html
-    - cmd: /bin/sh
+    cmd: /bin/sh
+services:
+    id: mongodb
 dev:
-    services:
-        - id: mongodb
     steps:
         - script:
             name: set env vars
