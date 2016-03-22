@@ -39,7 +39,7 @@ build:
                 cp terraform/*.tf terraform/*.json "$WERCKER_OUTPUT_DIR"
 # Werker deploy pipeline
 deploy:
-    dockerHub:
+    dockerhub:
         # TODO Validate this is all setup right
         - internal/docker-scratch-push:
             username: $DOCKER_USERNAME
