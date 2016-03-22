@@ -1,11 +1,9 @@
-box:
-    # 4.4.0 is latest LTS version of node
-    id: nodesource/trusty:4.4.0
-    # Shell
-    # http://devcenter.wercker.com/docs/steps/internal-steps.html
-    cmd: /bin/bash
+# http://devcenter.wercker.com/docs/steps/internal-steps.html
+# 4.4.0 is latest LTS version of node
+box: nodesource/trusty:4.4.0
 services:
     id: mongodb
+# Local dev pipeline
 dev:
     steps:
         - script:
@@ -13,7 +11,7 @@ dev:
             # TODO Update this for mongo
             code: |
                 export NODE_ENV=development
-                export SVC_REDIS_HOST=${REDIS_PORT_6379_TCP_ADDR}
+                export SVC_MONGODB_HOST=${MONGODB_PORT_27017_TCP_ADDR}
         - script:
             name: npm rebuild
             code: npm rebuild
@@ -21,13 +19,14 @@ dev:
         - internal/watch:
             code: node index.js
             reload: true
+# Werker build pipeline
 build:
     steps:
         - script:
             name: set env vars
             code: export NODE_ENV=test
         - npm-install
-        # TODO Understand tape better
+        # TODO Understand tape and xo better
         - script:
             name: install test deps globally
             code: npm install -g tape xo
@@ -38,6 +37,7 @@ build:
                 cp $(which node) "$WERCKER_OUTPUT_DIR"
                 cp -RL node_modules config data api index.js package.json "$WERCKER_OUTPUT_DIR"
                 cp terraform/*.tf terraform/*.json "$WERCKER_OUTPUT_DIR"
+# Werker deploy pipeline
 deploy:
     dockerHub:
         # TODO Validate this is all setup right

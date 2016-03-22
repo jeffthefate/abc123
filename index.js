@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const express = require('express')();
 const movies = require('./data/movies.js');
 
-seneca.use('redis-store', config['redis-store']);
+seneca.use('mongo-store', config['mongo-store']);
 seneca.use(require('./api/movies.js'), movies);
 
 seneca.ready(function onReady() {
