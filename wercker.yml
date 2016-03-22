@@ -47,7 +47,7 @@ deploy:
             cmd: ./node ./index.js
             tag: $WERCKER_GIT_COMMIT
             ports: "3000"
-            repository: jeffthefate/wercker-node-ecs-demo
+            repository: jeffthefate/abc123
             registry: https://registry.hub.docker.com
     ecs:
         # Not done yet
