@@ -39,7 +39,7 @@ build:
                 cp terraform/*.tf terraform/*.json "$WERCKER_OUTPUT_DIR"
 # Werker deploy pipeline
 deploy:
-
+    box: nodesource/trusty:4.4.0
     dockerhub:
         - internal/docker-scratch-push:
             username: $DOCKER_USERNAME
@@ -48,7 +48,6 @@ deploy:
             tag: $WERCKER_GIT_COMMIT
             ports: "3000"
             repository: jeffthefate/abc123
-            
     ecs:
         # Not done yet
         - script:
