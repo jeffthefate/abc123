@@ -40,7 +40,6 @@ build:
 # Werker deploy pipeline
 deploy:
     dockerhub:
-        # TODO Validate this is all setup right
         - internal/docker-scratch-push:
             username: $DOCKER_USERNAME
             password: $DOCKER_PASSWORD
