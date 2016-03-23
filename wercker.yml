@@ -37,7 +37,7 @@ build:
                 cp $(which node) "$WERCKER_OUTPUT_DIR"
                 cp -RL node_modules config data api index.js package.json "$WERCKER_OUTPUT_DIR"
                 cp terraform/*.tf terraform/*.json "$WERCKER_OUTPUT_DIR"
-
+# Werker deploy pipeline
 deploy:
   box: nodesource/trusty:4.4.0
   dockerhub:
